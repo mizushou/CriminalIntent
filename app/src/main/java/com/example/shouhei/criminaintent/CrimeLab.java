@@ -11,6 +11,7 @@ public class CrimeLab {
   private static CrimeLab sCrimeLab;
   private List<Crime> mCrimes;
 
+  // singleton
   public static CrimeLab get(Context context) {
     if (sCrimeLab == null) {
       sCrimeLab = new CrimeLab(context);
@@ -30,6 +31,10 @@ public class CrimeLab {
 
   public void addCrime(Crime c) {
     mCrimes.add(c);
+  }
+
+  public void deleteCrime(Crime c) {
+    mCrimes.remove(c);
   }
 
   public List<Crime> getCrimes() {
