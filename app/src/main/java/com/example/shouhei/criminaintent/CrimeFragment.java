@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +25,8 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
+
+  private static final String TAG = "CrimeFragment";
 
   private static final String ARG_CRIME_ID = "crime_id";
   private static final String DIALOG_DATE = "DialogDate";
@@ -53,6 +56,13 @@ public class CrimeFragment extends Fragment {
     mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
   }
 
+  @Override
+  public void onPause() {
+    super.onPause();
+
+    CrimeLab.get(getActivity()).updateCrime(mCrime);
+  }
+
   @Nullable
   @Override
   public View onCreateView(
@@ -66,12 +76,12 @@ public class CrimeFragment extends Fragment {
     mTitleField.addTextChangedListener(
         new TextWatcher() {
           @Override
-          public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            mCrime.setTitle(s.toString());
-          }
+          public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
           @Override
-          public void onTextChanged(CharSequence s, int start, int before, int count) {}
+          public void onTextChanged(CharSequence s, int start, int before, int count) {
+            mCrime.setTitle(s.toString());
+          }
 
           @Override
           public void afterTextChanged(Editable s) {}
@@ -110,17 +120,17 @@ public class CrimeFragment extends Fragment {
     inflater.inflate(R.menu.fragment_crime, menu);
   }
 
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.delete_crime:
-        CrimeLab.get(getActivity()).deleteCrime(mCrime);
-        getActivity().finish();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-  }
+  //  @Override
+  //  public boolean onOptionsItemSelected(MenuItem item) {
+  //    switch (item.getItemId()) {
+  //      case R.id.delete_crime:
+  //        CrimeLab.get(getActivity()).deleteCrime(mCrime);
+  //        getActivity().finish();
+  //        return true;
+  //      default:
+  //        return super.onOptionsItemSelected(item);
+  //    }
+  //  }
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {

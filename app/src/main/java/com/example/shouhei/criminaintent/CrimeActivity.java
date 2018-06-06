@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public class CrimeActivity extends SingleFragmentActivity {
 
+  private static final String TAG = "CrimeActivity";
   private static final String EXTRA_CRIME_ID =
       "com.example.shouhei.android.criminalintent.crime_id";
 
