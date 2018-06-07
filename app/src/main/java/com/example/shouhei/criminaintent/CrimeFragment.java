@@ -163,17 +163,17 @@ public class CrimeFragment extends Fragment {
     inflater.inflate(R.menu.fragment_crime, menu);
   }
 
-  //  @Override
-  //  public boolean onOptionsItemSelected(MenuItem item) {
-  //    switch (item.getItemId()) {
-  //      case R.id.delete_crime:
-  //        CrimeLab.get(getActivity()).deleteCrime(mCrime);
-  //        getActivity().finish();
-  //        return true;
-  //      default:
-  //        return super.onOptionsItemSelected(item);
-  //    }
-  //  }
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.delete_crime:
+        CrimeLab.get(getActivity()).deleteCrime(mCrime);
+        getActivity().finish();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+  }
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {

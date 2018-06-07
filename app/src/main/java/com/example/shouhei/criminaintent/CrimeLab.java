@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.shouhei.criminaintent.database.CrimeBaseHelper;
 import com.example.shouhei.criminaintent.database.CrimeCursorWrapper;
+import com.example.shouhei.criminaintent.database.CrimeDbSchema;
 import com.example.shouhei.criminaintent.database.CrimeDbSchema.CrimeTable;
 
 import java.util.ArrayList;
@@ -52,9 +53,12 @@ public class CrimeLab {
     mDatabase.insert(CrimeTable.NAME, null, values);
   }
 
-  //  public void deleteCrime(Crime c) {
-  //    mCrimes.remove(c);
-  //  }
+  public void deleteCrime(Crime c) {
+
+    String uuidString = c.getId().toString();
+
+    mDatabase.delete(CrimeTable.NAME, CrimeTable.Cols.UUID + " = ?", new String[] {uuidString});
+  }
 
   public List<Crime> getCrimes() {
 
