@@ -10,6 +10,7 @@ import com.example.shouhei.criminaintent.database.CrimeCursorWrapper;
 import com.example.shouhei.criminaintent.database.CrimeDbSchema;
 import com.example.shouhei.criminaintent.database.CrimeDbSchema.CrimeTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -92,6 +93,11 @@ public class CrimeLab {
     } finally {
       cursor.close();
     }
+  }
+
+  public File getPhotoFile(Crime crime) {
+    File fileDir = mContext.getFilesDir();
+    return new File(fileDir, crime.getPhotoFilename());
   }
 
   public void updateCrime(Crime crime) {
