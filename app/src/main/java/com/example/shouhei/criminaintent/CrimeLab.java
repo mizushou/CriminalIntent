@@ -64,11 +64,13 @@ public class CrimeLab {
   public List<Crime> getCrimes() {
 
     List<Crime> crimes = new ArrayList<>();
+    // Full search from crime table
     CrimeCursorWrapper cursor = queryCrimes(null, null);
 
     try {
       cursor.moveToFirst();
       while (!cursor.isAfterLast()) {
+        // convert from row to crime instance and add List
         crimes.add(cursor.getCrime());
         cursor.moveToNext();
       }
