@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">クリミナルインテント</string>
+    <string name="crime_title_hint">事件のタイトル</string>
+    <string name="crime_title_label">タイトル</string>
+    <string name="crime_details_label">表示</string>
+    <string name="crime_solved_label">解決済み</string>
+    <string name="date_picker_title">事件の発生日：</string>
+    <string name="new_crime">新しい事件</string>
+    <string name="delete_crime">削除</string>
+    <string name="show_subtitle">サブタイトル表示</string>
+    <string name="hide_subtitle">サブタイトル非表示</string>
+    <string name="subtitle_format">%1$d 件</string>
+    <plurals name="subtitle_plural">
+    <item quantity="one">%1$d 件</item>
+    <item quantity="other">%1$d 件</item>
+    </plurals>
+    <string name="crime_suspect_text">容疑者</string>
+    <string name="crime_report_text">事件報告</string>
+    <string name="crime_report">%1$s!
+        この事件は %2$s. %3$s, and %4$s に発生しました。
+    </string>
+    <string name="crime_report_solved">解決済み</string>
+    <string name="crime_report_unsolved">未解決</string>
+    <string name="crime_report_no_suspect">容疑者不明</string>
+    <string name="crime_report_suspect">容疑者は %s</string>
+    <string name="crime_report_subject">クリミナルインテント レポート</string>
+    <string name="send_crime_report">Send crime report via</string>
+</resources>

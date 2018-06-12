@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="crime_title_hint">
+        事件の詳細をわかりやすく、記憶に残りやすい文章で入力してください。
+    </string>
+</resources>
